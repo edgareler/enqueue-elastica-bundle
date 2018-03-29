@@ -27,7 +27,7 @@ class EnqueueElasticaExtension extends Extension
 
         $container->setAlias('enqueue_elastica.context', $config['context']);
 
-        $doctrineDriver = $config['doctrine']['driver'];
+        $doctrineDriver = isset($config['doctrine']) ? $config['doctrine']['driver'] : '';
         if (false == empty($config['doctrine']['queue_listeners'])) {
             foreach ($config['doctrine']['queue_listeners'] as $listenerConfig) {
                 $listenerId = sprintf(
